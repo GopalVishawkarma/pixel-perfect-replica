@@ -1,12 +1,38 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import PropertiesSection from "@/components/PropertiesSection";
+import PremiumSolutions from "@/components/PremiumSolutions";
+import FurnishingSection from "@/components/FurnishingSection";
+import HelpBanner from "@/components/HelpBanner";
+import PlansSection from "@/components/PlansSection";
+import LocationsSection from "@/components/LocationsSection";
+import AppDownload from "@/components/AppDownload";
+import Testimonials from "@/components/Testimonials";
+import PropertyLinks from "@/components/PropertyLinks";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <HeroSection />
+      <PropertiesSection
+        title="Residentials Properties Near Me"
+        subtitle="Browse Verified Rental Homes Near Your Location, Listed By Real Owners With No Brokerage Involved."
+      />
+      <PremiumSolutions />
+      <PropertiesSection
+        title="Commercial Properties Near Me"
+        subtitle="Browse Aadhaar-Verified Commercial Properties Near You With Transparent Pricing."
+      />
+      <FurnishingSection />
+      <HelpBanner />
+      <PlansSection />
+      <LocationsSection />
+      <AppDownload />
+      <Testimonials />
+      <PropertyLinks />
+      <Footer />
     </div>
   );
 };
