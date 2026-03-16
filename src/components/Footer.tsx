@@ -1,24 +1,56 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   const columns = [
     {
       title: "About Us",
-      links: ["About Us", "How OwnersLane Works", "Broker-Free Promise", "Verification Process", "Managed vs Self Listing", "Careers"],
+      links: [
+        { label: "About OwnersLane", href: "/about" },
+        { label: "How It Works", href: "/what-we-do" },
+        { label: "Broker-Free Promise", href: "/about" },
+        { label: "Verification Process", href: "/what-we-do" },
+        { label: "Careers", href: "/contact" },
+      ],
     },
     {
       title: "Properties",
-      links: ["Properties for Rent Near Me", "Properties for Rent Near Me", "Commercial Properties Near Me", "Residential Properties", "Commercial Properties"],
+      links: [
+        { label: "Residential Rentals", href: "/for-tenants" },
+        { label: "Properties for Sale", href: "/for-buyers" },
+        { label: "Commercial Spaces", href: "/for-buyers" },
+        { label: "PG & Shared Living", href: "/for-tenants" },
+        { label: "New Projects", href: "/for-buyers" },
+      ],
     },
     {
       title: "Explore",
-      links: ["Explore by Location", "Explore by Property Type", "Visit Residential Properties", "Visit Commercial Properties", "Explore by Furnishing Type"],
+      links: [
+        { label: "Mumbai Properties", href: "/" },
+        { label: "Delhi NCR Properties", href: "/" },
+        { label: "Bangalore Properties", href: "/" },
+        { label: "Pune Properties", href: "/" },
+        { label: "Hyderabad Properties", href: "/" },
+      ],
     },
     {
       title: "For Property Owners",
-      links: ["List Property", "Self Listing Plans", "Managed Property Services", "Pricing & Plans", "Post Property for Free"],
+      links: [
+        { label: "List Your Property", href: "/for-owners" },
+        { label: "Self Listing Plans", href: "/pricing" },
+        { label: "Managed Services", href: "/for-owners" },
+        { label: "Pricing & Plans", href: "/pricing" },
+        { label: "Post Property Free", href: "/for-owners" },
+      ],
     },
     {
-      title: "Help & Resources",
-      links: ["Frequently Asked Questions", "Safety & Anti-Broker Policy", "Privacy Policy", "Terms & Conditions", "Refund & Cancellation Policy"],
+      title: "Help & Legal",
+      links: [
+        { label: "FAQs", href: "/contact" },
+        { label: "Privacy Policy", href: "/about" },
+        { label: "Terms & Conditions", href: "/about" },
+        { label: "Refund Policy", href: "/pricing" },
+        { label: "Anti-Broker Policy", href: "/about" },
+      ],
     },
   ];
 
@@ -31,12 +63,12 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">OwnersLane</h3>
             <p className="text-xs text-primary-foreground/60 mb-1">Address</p>
             <p className="text-sm font-semibold mb-4">
-              789 Queensberry Street, North Melbourne VIC 3051, Australia.
+              4th Floor, Tower B, Prestige Tech Park, Marathahalli, Bangalore 560103
             </p>
-            <p className="text-xs text-primary-foreground/60 mb-1">Total Free Customer Care</p>
-            <p className="text-sm font-semibold mb-4">+(088) 123 456 789</p>
-            <p className="text-xs text-primary-foreground/60 mb-1">Connect With Support?</p>
-            <p className="text-sm font-semibold">hi@homez.com</p>
+            <p className="text-xs text-primary-foreground/60 mb-1">Customer Support</p>
+            <p className="text-sm font-semibold mb-4">+91 685 88666</p>
+            <p className="text-xs text-primary-foreground/60 mb-1">Email Us</p>
+            <p className="text-sm font-semibold">support@ownerslane.com</p>
           </div>
 
           {columns.map((col) => (
@@ -45,9 +77,9 @@ const Footer = () => {
               <ul className="space-y-2">
                 {col.links.map((link, i) => (
                   <li key={i}>
-                    <a href="#" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">
-                      {link}
-                    </a>
+                    <Link to={link.href} className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -56,12 +88,18 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between">
-          <p className="text-xs text-primary-foreground/60">©OwnersLane – All rights reserved</p>
+          <p className="text-xs text-primary-foreground/60">© 2026 OwnersLane Pvt. Ltd. – All rights reserved</p>
           <div className="flex items-center gap-4 mt-4 md:mt-0">
             <span className="text-sm text-primary-foreground/60">Follow Us</span>
-            {["📷", "📘", "✖", "💼", "▶"].map((icon, i) => (
-              <a key={i} href="#" className="text-primary-foreground/60 hover:text-primary-foreground text-lg">
-                {icon}
+            {[
+              { icon: "📷", label: "Instagram" },
+              { icon: "📘", label: "Facebook" },
+              { icon: "✖", label: "X" },
+              { icon: "💼", label: "LinkedIn" },
+              { icon: "▶", label: "YouTube" },
+            ].map((social, i) => (
+              <a key={i} href="#" title={social.label} className="text-primary-foreground/60 hover:text-primary-foreground text-lg">
+                {social.icon}
               </a>
             ))}
           </div>

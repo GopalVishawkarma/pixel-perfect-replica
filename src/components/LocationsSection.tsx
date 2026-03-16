@@ -1,9 +1,15 @@
 const locations = [
-  "Andheri", "Panvel", "Thane", "Kalyan",
-  "Dadar", "Kharghar", "Dombivali", "Sion",
+  { name: "Andheri", count: 1240 },
+  { name: "Panvel", count: 430 },
+  { name: "Thane", count: 870 },
+  { name: "Kalyan", count: 315 },
+  { name: "Dadar", count: 560 },
+  { name: "Kharghar", count: 290 },
+  { name: "Dombivali", count: 210 },
+  { name: "Sion", count: 185 },
 ];
 
-const LocationBadge = ({ name }: { name: string }) => (
+const LocationBadge = ({ name, count }: { name: string; count: number }) => (
   <div className="flex items-center gap-3 cursor-pointer hover:bg-muted p-2 rounded-lg transition-colors">
     <div className="w-14 h-14 rounded-full border-2 border-red-500 flex items-center justify-center bg-background">
       <div className="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center">
@@ -14,7 +20,7 @@ const LocationBadge = ({ name }: { name: string }) => (
     </div>
     <div>
       <h4 className="font-semibold text-foreground text-sm">{name}</h4>
-      <p className="text-xs text-muted-foreground">0 Properties</p>
+      <p className="text-xs text-muted-foreground">{count.toLocaleString()} Properties</p>
     </div>
   </div>
 );
@@ -26,11 +32,11 @@ const LocationsSection = () => {
         Explore Properties By Location
       </h2>
       <p className="text-sm text-muted-foreground text-center mb-10">
-        India's preferred workspace partner welcomes you to its world of amazing experiences.
+        Discover verified properties across Mumbai's most sought-after neighborhoods.
       </p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {locations.map((loc) => (
-          <LocationBadge key={loc} name={loc} />
+          <LocationBadge key={loc.name} name={loc.name} count={loc.count} />
         ))}
       </div>
     </section>
