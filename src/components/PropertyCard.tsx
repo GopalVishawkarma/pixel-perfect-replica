@@ -13,6 +13,7 @@ interface PropertyCardProps {
   furnishing: string;
   amenities: string[];
   contactName: string;
+  badge?: string;
 }
 
 const PropertyCard = ({
@@ -28,6 +29,7 @@ const PropertyCard = ({
   furnishing,
   amenities,
   contactName,
+  badge = "Apartment",
 }: PropertyCardProps) => {
   return (
     <div className="bg-card rounded-xl overflow-hidden shadow-md border border-border hover:shadow-lg transition-shadow">
@@ -35,7 +37,7 @@ const PropertyCard = ({
       <div className="relative h-48 overflow-hidden">
         <img src={image} alt={title} className="w-full h-full object-cover" />
         <span className="absolute top-3 left-3 bg-primary text-primary-foreground text-xs px-2 py-1 rounded">
-          Apartment
+          {badge}
         </span>
         <button className="absolute top-3 right-3 w-8 h-8 bg-background/80 rounded-full flex items-center justify-center hover:bg-background">
           <Heart size={16} className="text-muted-foreground" />
